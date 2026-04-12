@@ -1,7 +1,8 @@
 \d .util
 
 / import designated function or entire directory
-use:{system["d"] upsert $[99h=type v:get x;v;(-1#` vs x)!1#v]}
+/ fully scope .util.use because 'use' is a new keyword in kdb-x
+.util.use:{system["d"] upsert $[99h=type v:get x;v;(-1#` vs x)!1#v]}
 
 / return weekdays from list of dates
 wday:{x where 1<x mod 7}
